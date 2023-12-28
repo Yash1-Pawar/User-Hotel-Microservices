@@ -1,6 +1,7 @@
 package com.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Value("${test.value}")
+	private String testString;
 
 	@PostMapping("create")
 	public ResponseEntity<Object> createUser(@RequestBody UserDTO userDTO) {
@@ -46,4 +50,9 @@ public class UserController {
 		return removeUser(userID);
 	}
 
+	@GetMapping("test")
+	public String test() {
+		return testString;
+	}
+	
 }

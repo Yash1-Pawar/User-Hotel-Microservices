@@ -9,16 +9,22 @@ spring:
       ddl-auto: update
   application:
     name: Rating
+  config:
+    import: optional:configserver:lb://CONFIGSERVER/
+  cloud:
+    config:
+      discovery:
+        enabled: true
       
-server:
-  port: 8083
+#server:
+#  port: 8083
   
   
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    prefer-ip-address: true
+#eureka:
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    prefer-ip-address: true

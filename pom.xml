@@ -30,5 +30,6 @@
 		<module>rating-service</module>
     <module>service-registry</module>
     <module>api-gateway</module>
+    <module>config-server</module>
   </modules>
 </project>

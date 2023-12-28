@@ -8,10 +8,10 @@
 		<artifactId>user-hotel-microservices</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.gateway</groupId>
-	<artifactId>micro-api-gateway</artifactId>
-	<name>micro-api-gateway</name>
-	<description>MicroService API GATEWAY</description>
+	<groupId>com.config</groupId>
+	<artifactId>micro-config-server</artifactId>
+	<name>micro-config-server</name>
+	<description>MicroService Config Server</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -22,24 +22,16 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
