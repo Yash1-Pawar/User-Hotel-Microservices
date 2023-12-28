@@ -18,7 +18,18 @@ spring:
        uri: lb://RATING
        predicates: 
        - Path=/rating/**
-
+       
+     - id: EUREKA_SERVER
+       uri: http://localhost:8761
+       predicates: 
+       - Path=/eureka/web
+       filters: 
+       - SetPath=/
+       
+     - id: EUREKA_SERVER_CSS
+       uri: http://localhost:8761
+       predicates: 
+       - Path=/eureka/**
       
 server:
   port: 8084

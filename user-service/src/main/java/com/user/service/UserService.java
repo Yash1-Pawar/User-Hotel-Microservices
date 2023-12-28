@@ -25,6 +25,9 @@ public class UserService {
 	private UserRepo userRepo;
 
 	@Autowired
+	private RatingFeign ratingFeign;
+
+	@Autowired
 	private RestTemplate restTemplate;
 
 	public ResponseEntity<Object> createUser(UserDTO userDTO) {
@@ -82,7 +85,8 @@ public class UserService {
 	}
 
 	public List<RatingDTO> getAllRatingByUserId(String userId) {
-		RatingDTO ratings[] = restTemplate.getForObject("http://RATING/rating/fetch", RatingDTO[].class);
+//		RatingDTO ratings[] = restTemplate.getForObject("http://RATING/rating/fetch", RatingDTO[].class);
+		RatingDTO ratings[] = ratingFeign.getAllRating().getBody();
 		List<RatingDTO> ratingDTOs = Arrays.asList(ratings).stream().filter(e -> e.getUserId().equals(userId))
 				.collect(Collectors.toList());
 		return ratingDTOs;

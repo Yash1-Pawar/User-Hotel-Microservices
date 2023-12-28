@@ -22,6 +22,9 @@ public class RatingService {
 	private RestTemplate restTemplate;
 
 	@Autowired
+	private HotelFeign hotelFeign;
+
+	@Autowired
 	private RatingRepository ratingRepository;
 
 	public ResponseEntity<Object> createRating(RatingDTO ratingDTO) {
@@ -76,7 +79,8 @@ public class RatingService {
 
 	public HotelDTO getHotelById(String hotelId) {
 		HotelDTO hotelDTO = new HotelDTO();
-		hotelDTO = restTemplate.getForObject("http://HOTEL/hotel/" + hotelId, HotelDTO.class);
+//		hotelDTO = restTemplate.getForObject("http://HOTEL/hotel/" + hotelId, HotelDTO.class);
+		hotelDTO = hotelFeign.getHotel(hotelId).getBody();
 		return hotelDTO;
 	}
 
