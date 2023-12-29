@@ -30,21 +30,22 @@ spring:
        uri: http://localhost:8761
        predicates: 
        - Path=/eureka/**
-    
     config:
       discovery:
         enabled: true
+        service-id: CONFIG-SERVER
   config:
-    import: optional:configserver:lb://CONFIGSERVER/
+    import: optional:configserver:http://CONFIG-SERVER/
 
-#server:
-#  port: 8084
-#  
-#eureka:
-#  client:
-#    fetch-registry: true
-#    register-with-eureka: true
-#    service-url:
-#      defaultZone: http://localhost:8761/eureka
-#  instance:
-#    prefer-ip-address: true
+
+server:
+  port: 0
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8766/eureka
+  instance:
+    prefer-ip-address: true

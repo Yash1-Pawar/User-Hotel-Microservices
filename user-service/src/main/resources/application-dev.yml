@@ -9,25 +9,25 @@ spring:
       ddl-auto: update
   application:
     name: Users
-  config:
-    import: optional:configserver:lb://CONFIGSERVER/
   cloud:
     config:
       discovery:
         enabled: true
+        service-id: CONFIG-SERVER
+  config:
+    import: optional:configserver:http://CONFIG-SERVER/
         
 test:
-  value: local
+  value: dev
 
 #server:
 #  port: 8081
 
-#eureka:
-#  client:
-#    fetch-registry: true
-#    register-with-eureka: true
-#    service-url:
-#      defaultZone: http://localhost:8761/eureka
-#  instance:
-#    prefer-ip-address: true
-    
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8766/eureka
+  instance:
+    prefer-ip-address: true

@@ -1,13 +1,14 @@
 spring:
   application:
-    name: configserver
+    name: CONFIG-SERVER
   cloud:
     config:
       server:
         git:
           uri: https://github.com/Yash1-Pawar/User-Hotel-MicroServices-Configurations
           clone-on-start: true
-      
+          
+              
 server:
   port: 0
   
@@ -16,6 +17,6 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:8766/eureka
   instance:
     prefer-ip-address: true

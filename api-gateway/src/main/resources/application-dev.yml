@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+     routes:
+     - id: EUREKA_SERVER
+       uri: http://localhost:8765
+       predicates: 
+       - Path=/eureka/web
+       filters: 
+       - SetPath=/
+       
+     - id: EUREKA_SERVER_CSS
+       uri: http://localhost:8765
+       predicates: 
+       - Path=/eureka/**
+       
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8765/eureka
+  instance:
+    prefer-ip-address: true
+    
